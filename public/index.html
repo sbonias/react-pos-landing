@@ -24,7 +24,26 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <!-- FontAwesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700"
+      rel="stylesheet"
+      type="text/css"
+    />
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -39,5 +58,69 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Contact form JS -->
+    <!-- <script src="assets/mail/jqBootstrapValidation.js"></script>
+    <script src="assets/mail/contact_me.js"></script> -->
+    <!-- Core theme JS-->
+    <script src="/src/assets/js/scroll.js"></script>
   </body>
+  <script>
+    /* eslint-disable no-restricted-globals */
+    (function ($) {
+      // Start of use strict
+
+      // Smooth scrolling using jQuery easing
+      $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
+        if (
+          location.pathname.replace(/^\//, '') ===
+            this.pathname.replace(/^\//, '') &&
+          location.hostname === this.hostname
+        ) {
+          var target = $(this.hash);
+          target = target.length
+            ? target
+            : $('[name=' + this.hash.slice(1) + ']');
+          if (target.length) {
+            $('html, body').animate(
+              {
+                scrollTop: target.offset().top - 72,
+              },
+              1000,
+              'easeInOutExpo'
+            );
+            return false;
+          }
+        }
+      });
+
+      // Closes responsive menu when a scroll trigger link is clicked
+      $('.js-scroll-trigger').click(function () {
+        $('.navbar-collapse').collapse('hide');
+      });
+
+      // Activate scrollspy to add active class to navbar items on scroll
+      $('body').scrollspy({
+        target: '#mainNav',
+        offset: 74,
+      });
+
+      // Collapse Navbar
+      var navbarCollapse = function () {
+        if ($('#mainNav').offset().top > 100) {
+          $('#mainNav').addClass('navbar-shrink');
+        } else {
+          $('#mainNav').removeClass('navbar-shrink');
+        }
+      };
+      // Collapse now if page is not at top
+      navbarCollapse();
+      // Collapse the navbar when page is scrolled
+      $(window).scroll(navbarCollapse);
+    })(jQuery); // End of use strict
+  </script>
 </html>
